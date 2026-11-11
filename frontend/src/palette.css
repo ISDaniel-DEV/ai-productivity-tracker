@@ -1,0 +1,164 @@
+/* Warm neutrals with crisp text and burnt-orange accents. */
+:root {
+  color-scheme: light;
+  --canvas: #dcdad4;
+  --sidebar: #cbc8c0;
+  --surface: #fcfbf8;
+  --surface-raised: #e6e3dc;
+  --surface-hover: #d4cfc4;
+  --text: #211f1c;
+  --secondary: #48433d;
+  --muted: #58534c;
+  --divider: #beb8ad;
+  --accent: #a23e12;
+  --accent-hover: #7e2e0b;
+  --accent-soft: #e8d6c7;
+  --on-accent: #fff9f3;
+  --clay: #914a2f;
+  --sage: #3e6959;
+  --ink: var(--text);
+  --paper: var(--surface);
+  --line: var(--divider);
+  --green: var(--accent);
+  --soft-green: var(--accent-soft);
+  --butter: var(--surface-raised);
+  --rose: var(--accent-soft);
+  color: var(--text);
+  background: var(--canvas);
+}
+
+body {
+  color: var(--text);
+  background-color: var(--canvas);
+  background-image: linear-gradient(rgba(140,107,74,.035) 1px, transparent 1px), linear-gradient(90deg,rgba(140,107,74,.035) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+::selection { background: #855d3d; color: #fff; }
+button:focus-visible, input:focus-visible { outline-color: var(--accent); }
+
+/* Navigation and account */
+.sidebar { background: var(--sidebar); border-right-color: var(--divider); }
+.brand { color: var(--text); }
+.brand-mark { background: var(--accent); color: var(--on-accent); }
+.brand-period { color: var(--accent); }
+.workspace-switch { background: var(--surface-raised); border-color: var(--divider); }
+.workspace-avatar, .profile-avatar, .top-avatar { background: var(--accent-soft); color: var(--accent); }
+.workspace-copy b, .profile b { color: var(--text); }
+.workspace-copy small, .profile small, .workspace-switch > svg { color: var(--muted); }
+.nav-label { color: var(--muted); }
+.nav-item { color: var(--secondary); }
+.nav-item:hover { background: var(--surface-raised); color: var(--text); }
+.nav-item.active { background: var(--accent); color: var(--on-accent); }
+.nav-item.active .nav-count { color: var(--on-accent); }
+.nav-count, .project-label button, .profile-more { color: var(--muted); }
+.sage-dot { background: var(--accent); }
+.peach-dot { background: var(--clay); }
+.blue-dot { background: var(--sage); }
+.sidebar-note { background: var(--surface-raised); border-color: transparent; color: var(--secondary); }
+.note-sun, .note-flower { color: var(--accent); }
+.profile { border-top-color: var(--divider); }
+
+/* Page header */
+.topbar { border-bottom-color: var(--divider); }
+.breadcrumbs { color: var(--muted); }
+.breadcrumbs span { color: #746c60; }
+.breadcrumbs b { color: var(--secondary); }
+.search-button { background: var(--surface); border-color: var(--divider); color: var(--secondary); }
+.search-button kbd { background: var(--surface-raised); border-color: var(--divider); color: var(--muted); }
+.icon-button { color: var(--secondary); }
+.notification-dot { background: var(--accent); }
+.date-kicker { color: var(--secondary); }
+.sun-dot { color: var(--accent); }
+.greeting-row h1 { color: var(--text); }
+.greeting-row h1 em { color: var(--accent); }
+.greeting-subtitle { color: var(--muted); }
+.greeting-doodle { color: #946849; }
+.doodle-line { border-color: currentColor; }
+
+/* Borderless cards and a restrained amber halo */
+.tasks-card, .chat-card, .calendar-card, .week-card, .focus-card {
+  background: var(--surface);
+  border: 0;
+  box-shadow: 0 8px 24px rgba(49,42,32,.12), 0 0 24px rgba(162,62,18,.045);
+}
+.section-heading h2, .side-card-heading h2, .chat-head h2 { color: var(--text); }
+.eyebrow { color: var(--accent); }
+.add-task-button { background: var(--accent); color: var(--on-accent); }
+.add-task-button:hover { background: var(--accent-hover); }
+.task-progress { color: var(--muted); }
+.progress-track { background: var(--surface-hover); }
+.progress-track span { background: var(--accent); }
+.progress-leaf { color: var(--sage); }
+.task-filters, .task-row, .task-footer { border-color: var(--divider); }
+.task-filters button { color: var(--muted); }
+.task-filters button:hover { color: var(--text); }
+.task-filters button.selected { color: var(--accent); }
+.task-filters button.selected:after { background: var(--accent); }
+.task-title { color: var(--text); }
+.completed .task-title { color: var(--muted); }
+.task-meta, .task-time, .task-time svg { color: var(--muted); }
+.task-check { background: var(--surface); border-color: #82796c; color: var(--on-accent); }
+.task-check:hover { border-color: var(--accent); }
+.task-check.checked { background: var(--accent); border-color: var(--accent); }
+.task-more { color: var(--muted); }
+.task-more:hover { color: var(--text); }
+.task-footer { color: var(--muted); }
+.footer-spark { color: var(--clay); }
+.task-footer button { color: var(--accent); }
+.empty-tasks, .empty-tasks span { color: var(--muted); }
+.add-task-form input { background: var(--canvas); border-color: var(--divider); color: var(--text); }
+.add-task-form input::placeholder { color: var(--muted); }
+.add-task-form button { background: var(--accent-soft); color: var(--accent); }
+
+/* Conversation */
+.chat-icon { background: var(--accent-soft); border-color: transparent; color: var(--accent); }
+.coming-soon { background: var(--accent-soft); color: var(--accent); }
+.chat-intro { color: var(--secondary); }
+.chat-placeholder { background: var(--surface-raised); color: var(--secondary); }
+.chat-bubble-icon { color: var(--accent); }
+.chat-user-message { background: var(--accent-soft); color: #794525; }
+.chat-input-wrap { background: var(--canvas); border-color: var(--divider); }
+.chat-input-wrap:focus-within { border-color: var(--accent); box-shadow: 0 0 0 2px rgba(161,75,36,.1); }
+.chat-input-wrap input { color: var(--text); }
+.chat-input-wrap input::placeholder { color: var(--muted); }
+.chat-input-wrap button { background: var(--accent); color: var(--on-accent); }
+.chat-input-wrap button:hover { background: var(--accent-hover); }
+.chat-disclaimer { color: var(--muted); }
+.chat-disclaimer svg { color: var(--clay); }
+
+/* Calendar and supporting panels */
+.more-button, .week-expand, .month-row button { color: var(--muted); }
+.more-button:hover, .week-expand:hover, .month-row button:hover { color: var(--accent); }
+.month-row { border-bottom-color: var(--divider); color: var(--text); }
+.weekday { color: var(--muted); }
+.calendar-day { color: var(--secondary); }
+.calendar-empty { background: transparent; }
+.calendar-day:hover { background: var(--surface-hover); color: var(--text); }
+.calendar-day.today { color: var(--accent); border-color: var(--accent); }
+.calendar-day.selected-day { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
+.day-mark, .legend-dot { background: var(--clay); }
+.selected-day .day-mark { background: #f6e3d1; }
+.calendar-legend { border-top-color: var(--divider); color: var(--muted); }
+.legend-today { border-color: var(--accent); }
+.calendar-open { background: var(--surface-raised); border-color: transparent; color: var(--secondary); }
+.calendar-open svg { color: var(--accent); }
+.calendar-open:hover { background: var(--surface-hover); color: var(--text); }
+.focus-card { background: #e1ddd4; color: var(--secondary); }
+.focus-top .eyebrow, .focus-bottom { color: var(--clay); }
+.focus-icon { background: #ccc4b7; color: #713c28; }
+.focus-spark { color: var(--clay); }
+.focus-card h3 { color: var(--text); }
+.focus-card p { color: var(--secondary); }
+.focus-line { background: #b3a28f; }
+.focus-flower { color: #cfc7b9; }
+.chart-bar { background: var(--surface-hover); }
+.chart-bar.current { background: var(--accent); }
+.chart-bar-highlight { background: #fff2e6; }
+.chart-day, .week-caption { color: var(--muted); }
+.caption-dot { background: var(--sage); }
+.tiny-quote { color: var(--muted); }
+.tiny-quote > span { color: var(--clay); }
+.tiny-quote p { color: var(--secondary); }
+.tiny-quote i { color: var(--muted); }
+.page-footer { border-color: var(--divider); color: var(--muted); }
+.page-footer span span { color: var(--accent); }

@@ -195,7 +195,7 @@ A higher-level summary including:
 ai-productivity-planner/
 │
 ├── frontend/
-│   └── React application
+│   └── React + TypeScript PWA
 │
 ├── backend/
 │   └── Spring Boot application
@@ -246,7 +246,40 @@ ai-productivity-planner/
 
 ## Running the Project
 
-The project is currently under development.
+The frontend is an independent React + TypeScript PWA. To run it locally, install Node.js LTS and pnpm, then:
+
+```bash
+cd frontend
+pnpm install --frozen-lockfile
+pnpm dev
+```
+
+On Windows, you can also double-click `start-app.bat` in the repository root. It installs frontend dependencies with pnpm on first launch and opens the app in your browser. It can bootstrap pnpm through Corepack or npx; Node.js with npm must be installed.
+
+For a production build, run `pnpm build` inside `frontend/`, then serve the generated `dist/` directory over HTTPS (or localhost). The browser's install option can add it to the desktop as a standalone app.
+
+The current dashboard includes:
+
+* Weekly tasks with navigation between weeks, day filters, due dates and completion status.
+* Quick capture: text entered in "Dime qué apunto" is currently saved as a task for today.
+* A collapsible sidebar whose state is remembered locally.
+* A weekly rhythm panel with sample data.
+* An installable PWA and a warm, high-contrast light theme.
+
+Tasks are stored in the browser's local storage. They are specific to that browser and are not transferred by cloning this repository.
+
+The frontend does not yet connect to the Spring Boot backend or Codex CLI. The planned flow is frontend → Spring Boot → Codex CLI on the same server → validated JSON → database → frontend. Requests needing clarification should return a question without creating a task.
+
+To continue development on another computer:
+
+```bash
+git clone https://github.com/ISDaniel-DEV/ai-productivity-tracker.git
+cd ai-productivity-tracker/frontend
+pnpm install --frozen-lockfile
+pnpm dev
+```
+
+The backend can be started separately with Maven after PostgreSQL is available.
 
 Once the initial setup is complete, the application will be runnable locally using Docker Compose:
 
