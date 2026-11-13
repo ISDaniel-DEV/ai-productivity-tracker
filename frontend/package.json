@@ -9,16 +9,17 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "vite": "latest",
-    "typescript": "latest",
+    "@oddbird/popover-polyfill": "^0.7.3",
+    "lucide-react": "latest",
     "react": "latest",
     "react-dom": "latest",
-    "lucide-react": "latest",
+    "typescript": "latest",
+    "vite": "latest",
     "vite-plugin-pwa": "latest"
   },
   "devDependencies": {
-    "@vitejs/plugin-react": "latest",
     "@types/react": "latest",
-    "@types/react-dom": "latest"
+    "@types/react-dom": "latest",
+    "@vitejs/plugin-react": "latest"
   }
 }

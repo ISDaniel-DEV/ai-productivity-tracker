@@ -1,0 +1,28 @@
+name: cuaderno-isolated-tests
+services:
+  db-test:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: cuaderno_test
+      POSTGRES_USER: cuaderno_test
+      POSTGRES_PASSWORD: isolated_test_only
+    tmpfs:
+      - /var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U cuaderno_test -d cuaderno_test"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+  backend-tests:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.backend
+      target: build
+    environment:
+      CUADERNO_TEST_DATABASE_URL: jdbc:postgresql://db-test:5432/cuaderno_test
+      CUADERNO_TEST_DATABASE_USER: cuaderno_test
+      CUADERNO_TEST_DATABASE_PASSWORD: isolated_test_only
+    command: ["mvn", "-B", "test"]
+    depends_on:
+      db-test:
+        condition: service_healthy
